@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'buttons.dart';
 import 'package:math_expressions/math_expressions.dart';
@@ -41,7 +42,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var userInput = '';
+  var userInput = '8';
   var answer = '';
 
   // Array of button
@@ -78,31 +79,30 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: <Widget>[
           Expanded(
-            child: Container(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.all(20),
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        userInput,
-                        style:
-                            const TextStyle(fontSize: 18, color: Colors.white),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(15),
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        answer,
-                        style: const TextStyle(
-                            fontSize: 30,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    )
-                  ]),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    userInput,
+                    style: const TextStyle(
+                        fontSize: 18, color: Color.fromARGB(255, 161, 28, 28)),
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(15),
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    answer,
+                    style: const TextStyle(
+                        fontSize: 30,
+                        color: Color.fromARGB(255, 196, 41, 41),
+                        fontWeight: FontWeight.bold),
+                  ),
+                )
+              ],
             ),
           ),
           Expanded(
@@ -185,6 +185,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           setState(() {
                             userInput += buttons[index];
                           });
+                          if (kDebugMode) {
+                            print(buttons[index]);
+                          }
                         },
                         buttonText: buttons[index],
                         color: isOperator(buttons[index])
@@ -223,10 +226,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-
-
-/*class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+class MyHomePage1 extends StatefulWidget {
+  const MyHomePage1({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -234,7 +235,7 @@ class _MyHomePageState extends State<MyHomePage> {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState1 extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -299,4 +300,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-}*/
+}
