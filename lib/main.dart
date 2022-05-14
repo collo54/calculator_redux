@@ -232,10 +232,10 @@ class MyHomePage1 extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePage1> createState() => _MyHomePage1State();
 }
 
-class _MyHomePageState1 extends State<MyHomePage> {
+class _MyHomePage1State extends State<MyHomePage1> {
   int _counter = 0;
 
   void _incrementCounter() {
